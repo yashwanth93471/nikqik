@@ -1,0 +1,30 @@
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-multipart==0.0.6
+python-dotenv==1.0.0
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# Document Processing
+PyPDF2==3.0.1
+python-docx==1.1.0
+markdown==3.5.1
+tiktoken==0.5.2
+
+# 🆓 FREE AI/ML - Hugging Face (No API costs!)
+huggingface-hub==0.20.0
+sentence-transformers==2.3.1
+transformers==4.36.0
+torch
+
+# MongoDB
+pymongo==4.6.1
+motor==3.3.2
+
+# Utilities
+aiofiles==23.2.1
+httpx==0.26.0
+numpy==1.24.3
+
+# Optional: Uncomment if you want to use paid OpenAI version
+# openai==1.10.0

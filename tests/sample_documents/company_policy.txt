@@ -1,0 +1,230 @@
+# TechCorp Company Policy Document
+
+## About TechCorp
+
+TechCorp is a leading technology company founded in 2015, specializing in artificial intelligence and cloud computing solutions. Our mission is to empower businesses through innovative technology.
+
+### Leadership Team
+
+**Chief Executive Officer (CEO)**: Sarah Johnson
+- Appointed: January 2020
+- Background: Former VP of Engineering at MegaTech
+- Email: sarah.johnson@techcorp.com
+
+**Chief Technology Officer (CTO)**: Michael Chen
+- Appointed: March 2019
+- Background: PhD in Computer Science, MIT
+- Email: michael.chen@techcorp.com
+
+**Chief Operating Officer (COO)**: Emily Rodriguez
+- Appointed: June 2021
+- Background: 15 years in operations management
+- Email: emily.rodriguez@techcorp.com
+
+## Office Locations
+
+### Headquarters
+123 Tech Street
+San Francisco, CA 94105
+United States
+
+Phone: +1 (555) 123-4567
+Main Email: info@techcorp.com
+
+### Regional Offices
+- New York: 456 Innovation Ave, New York, NY 10001
+- Austin: 789 Startup Blvd, Austin, TX 78701
+- Seattle: 321 Cloud Drive, Seattle, WA 98101
+
+## Employee Benefits and Policies
+
+### Vacation Policy
+
+All full-time employees are entitled to **15 days of paid vacation** annually. Vacation days accrue at a rate of 1.25 days per month.
+
+**Key Points:**
+- Vacation requests must be submitted at least 2 weeks in advance
+- Maximum carryover: 5 days to the next calendar year
+- Unused vacation days beyond the carryover limit are forfeited
+- Part-time employees receive prorated vacation days
+
+### Remote Work Policy
+
+TechCorp supports flexible work arrangements. Employees are allowed to work remotely **2 days per week** (typically Tuesday and Thursday).
+
+**Requirements:**
+- Must maintain reliable internet connection (minimum 50 Mbps)
+- Must be available during core hours (10 AM - 3 PM PT)
+- Must attend all mandatory in-person meetings
+- Remote work agreement must be signed annually
+
+### Working Hours
+
+**Standard Schedule:**
+- Monday to Friday: 9:00 AM - 5:00 PM
+- Lunch break: 1 hour (typically 12:00 PM - 1:00 PM)
+- Total: 40 hours per week
+
+**Flexible Hours:**
+Employees may adjust their schedule within the range of 7:00 AM - 7:00 PM, provided they:
+- Complete 40 hours per week
+- Are present during core hours (10 AM - 3 PM)
+- Coordinate with their team
+
+### Health Insurance
+
+TechCorp provides comprehensive health insurance coverage through BlueCross BlueShield.
+
+**Coverage Includes:**
+- Medical, dental, and vision
+- Mental health services
+- Prescription drug coverage
+- Annual health checkups
+
+**Employee Contribution:**
+- Individual: $50/month
+- Family: $150/month
+
+### Retirement Plan
+
+**401(k) Plan:**
+- Employer match: 50% of employee contributions up to 6% of salary
+- Vesting schedule: 4 years (25% per year)
+- Eligible after 3 months of employment
+
+### Professional Development
+
+Annual budget: **$2,000 per employee** for:
+- Conference attendance
+- Online courses and certifications
+- Professional books and materials
+- Workshops and training programs
+
+### Parental Leave
+
+**Maternity Leave:** 16 weeks paid leave
+**Paternity Leave:** 8 weeks paid leave
+**Adoption Leave:** 12 weeks paid leave
+
+All parental leave must be taken within 12 months of the child's birth or adoption.
+
+## Code of Conduct
+
+### Core Values
+
+1. **Integrity**: We act with honesty and transparency
+2. **Innovation**: We embrace creativity and new ideas
+3. **Collaboration**: We work together to achieve common goals
+4. **Excellence**: We strive for the highest quality in everything we do
+5. **Diversity**: We value and respect different perspectives
+
+### Workplace Behavior
+
+- Treat all colleagues with respect and professionalism
+- Maintain confidentiality of sensitive information
+- Report any violations of company policy
+- Avoid conflicts of interest
+- Use company resources responsibly
+
+### Anti-Discrimination Policy
+
+TechCorp is an equal opportunity employer. We do not discriminate based on:
+- Race, color, or national origin
+- Gender or gender identity
+- Age
+- Religion
+- Disability
+- Sexual orientation
+- Veteran status
+
+## IT and Security Policies
+
+### Equipment
+
+All employees receive:
+- Laptop (MacBook Pro or Dell XPS)
+- External monitor (27-inch)
+- Keyboard and mouse
+- Headphones
+
+### Data Security
+
+**Required Practices:**
+- Use strong passwords (minimum 12 characters)
+- Enable two-factor authentication on all accounts
+- Encrypt sensitive data
+- Lock computer when away from desk
+- Report security incidents immediately
+
+**Prohibited:**
+- Sharing passwords
+- Using personal devices for company data without approval
+- Downloading unauthorized software
+- Accessing inappropriate websites
+
+### Software Licenses
+
+All software must be properly licensed. Employees may request software through the IT portal at it.techcorp.com.
+
+## Performance Reviews
+
+Performance reviews are conducted **twice annually** (June and December).
+
+**Review Process:**
+1. Self-assessment submission
+2. Manager evaluation
+3. One-on-one review meeting
+4. Goal setting for next period
+
+**Rating Scale:**
+- Exceeds Expectations
+- Meets Expectations
+- Needs Improvement
+- Unsatisfactory
+
+## Compensation
+
+### Salary Reviews
+
+Salaries are reviewed annually in January. Increases are based on:
+- Performance review ratings
+- Market benchmarks
+- Company financial performance
+- Individual contributions
+
+### Bonus Structure
+
+**Annual Performance Bonus:**
+- Target: 10-20% of base salary
+- Based on individual and company performance
+- Paid in March following the review year
+
+## Contact Information
+
+### Human Resources
+Email: hr@techcorp.com
+Phone: +1 (555) 123-4570
+Office: Building A, 2nd Floor
+
+### IT Support
+Email: support@techcorp.com
+Phone: +1 (555) 123-4580
+Portal: it.techcorp.com
+
+### Facilities
+Email: facilities@techcorp.com
+Phone: +1 (555) 123-4590
+
+## Policy Updates
+
+This policy document was last updated on **January 1, 2024**.
+
+Employees will be notified of any policy changes via email and the company intranet. All employees are required to acknowledge receipt and understanding of company policies annually.
+
+---
+
+**Document Version:** 3.2
+**Effective Date:** January 1, 2024
+**Next Review:** January 1, 2025
+
+For questions about these policies, please contact Human Resources.

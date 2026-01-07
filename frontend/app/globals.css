@@ -1,45 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* Apple-inspired Light Theme */
+  /* Vibrant Purple & Coral Theme */
   --bg-primary: #ffffff;
-  --bg-secondary: #f5f5f7;
-  --bg-tertiary: #fafafa;
-  --text-primary: #1d1d1f;
-  --text-secondary: #86868b;
-  --accent-primary: #0071e3;
-  --accent-secondary: #06c;
-  --accent-gradient-start: #007aff;
-  --accent-gradient-end: #5856d6;
-  --border-color: #d2d2d7;
-  --success: #34c759;
-  --error: #ff3b30;
-  --warning: #ff9500;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
-  --glass-bg: rgba(255, 255, 255, 0.72);
-  --glass-border: rgba(0, 0, 0, 0.04);
-}
+  --bg-secondary: #fdfdfd;
+  --bg-tertiary: #f8f9fa;
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  --primary: #4a1d4b;
+  /* Deep Purple */
+  --primary-light: #6a2c6b;
+  --accent: #ff7062;
+  /* Salmon/Coral */
+  --accent-hover: #e86356;
+
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --text-white: #ffffff;
+
+  --border-color: #eeeeee;
+  --success: #27ae60;
+  --error: #eb5757;
+  --warning: #f2994a;
+
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  --glass-bg: rgba(74, 29, 75, 0.85);
+  /* Purple Glass */
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Outfit', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
-  letter-spacing: -0.01em;
 }
 
 /* Custom Scrollbar - Apple Style */
@@ -139,45 +141,55 @@ body {
   animation: float 3s ease-in-out infinite;
 }
 
-/* Apple Glassmorphism */
-.glass {
+/* Hero & Glassmorphism */
+.glass-purple {
   background: var(--glass-bg);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-md);
 }
 
-.glass-strong {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: saturate(180%) blur(30px);
-  -webkit-backdrop-filter: saturate(180%) blur(30px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: var(--shadow-lg);
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(74, 29, 75, 0.9) 0%, rgba(106, 44, 107, 0.8) 100%);
 }
 
-/* Buttons - Apple Style */
-.btn-primary {
-  background: linear-gradient(180deg, var(--accent-gradient-start), var(--accent-gradient-end));
+/* Buttons - Premium Theme */
+.btn-accent {
+  background: var(--accent);
   color: white;
-  padding: 12px 24px;
-  border-radius: 980px;
-  font-weight: 600;
-  font-size: 15px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
   border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0, 122, 255, 0.3);
-  letter-spacing: -0.02em;
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(0, 122, 255, 0.4);
+.btn-accent:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 112, 98, 0.3);
 }
 
-.btn-primary:active {
-  transform: translateY(0) scale(0.98);
+.btn-outline-white {
+  background: transparent;
+  color: white;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  border: 2px solid white;
+}
+
+.btn-outline-white:hover {
+  background: white;
+  color: var(--primary);
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
@@ -242,8 +254,8 @@ body {
 .input-field:focus {
   outline: none;
   background: white;
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(255, 112, 98, 0.1);
 }
 
 .input-field::placeholder {
@@ -253,7 +265,7 @@ body {
 /* Loading Spinner - Apple Style */
 .spinner {
   border: 3px solid rgba(0, 0, 0, 0.1);
-  border-top: 3px solid var(--accent-primary);
+  border-top: 3px solid var(--accent);
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -270,9 +282,9 @@ body {
   }
 }
 
-/* Citation Badge - Apple Style */
+/* Citation Badge */
 .citation-badge {
-  background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+  background: var(--accent);
   color: white;
   padding: 6px 14px;
   border-radius: 980px;
@@ -281,9 +293,8 @@ body {
   display: inline-block;
   margin: 4px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.25);
-  letter-spacing: -0.01em;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 112, 98, 0.25);
 }
 
 .citation-badge:hover {
@@ -291,22 +302,21 @@ body {
   box-shadow: 0 4px 16px rgba(0, 122, 255, 0.35);
 }
 
-/* Message Bubbles - iMessage Style */
+/* Message Bubbles */
 .message-user {
-  background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+  background: var(--primary);
   color: white;
   padding: 14px 18px;
   border-radius: 20px 20px 4px 20px;
   max-width: 80%;
   margin-left: auto;
-  box-shadow: 0 2px 12px rgba(0, 122, 255, 0.2);
+  box-shadow: 0 2px 12px rgba(74, 29, 75, 0.2);
   font-size: 15px;
   line-height: 1.5;
-  letter-spacing: -0.01em;
 }
 
 .message-assistant {
-  background: var(--bg-secondary);
+  background: var(--bg-tertiary);
   color: var(--text-primary);
   padding: 14px 18px;
   border-radius: 20px 20px 20px 4px;
@@ -314,7 +324,6 @@ body {
   border: 1px solid var(--border-color);
   font-size: 15px;
   line-height: 1.5;
-  letter-spacing: -0.01em;
 }
 
 /* Upload Zone - Apple Style */
@@ -352,8 +361,8 @@ body {
 }
 
 .status-processing {
-  background: rgba(0, 122, 255, 0.12);
-  color: var(--accent-primary);
+  background: rgba(74, 29, 75, 0.12);
+  color: var(--primary);
 }
 
 .status-completed {

@@ -105,30 +105,21 @@ export default function KnowledgeBase({ refreshTrigger, onStatsUpdate, onReset }
     };
 
     const getStatusBadge = (status: string) => {
-        const statusMap: Record<string, { bg: string; text: string; icon: string }> = {
-            pending: { bg: 'rgba(255, 149, 0, 0.12)', text: '#ff9500', icon: '⏳' },
-            processing: { bg: 'rgba(0, 122, 255, 0.12)', text: '#007aff', icon: '⚙️' },
-            completed: { bg: 'rgba(52, 199, 89, 0.12)', text: '#34c759', icon: '✓' },
-            failed: { bg: 'rgba(255, 59, 48, 0.12)', text: '#ff3b30', icon: '✕' },
-        };
-
-        const statusInfo = statusMap[status.toLowerCase()] || statusMap.pending;
-
-        return (
-            <span className="px-3 py-1.5 rounded-full text-xs font-semibold" style={{ background: statusInfo.bg, color: statusInfo.text }}>
-                {statusInfo.icon} {status}
-            </span>
-        );
+        const lowerStatus = status.toLowerCase();
+        if (lowerStatus === 'completed') {
+            return <span className="status-badge status-completed">✓ {status}</span>;
+        } else if (lowerStatus === 'processing') {
+            return <span className="status-badge status-processing">⚙️ {status}</span>;
+        } else if (lowerStatus === 'failed') {
+            return <span className="status-badge status-failed">✕ {status}</span>;
+        }
+        return <span className="status-badge status-pending">⏳ {status}</span>;
     };
 
     if (loading) {
         return (
-            <div className="max-w-5xl mx-auto">
-                <div className="card">
-                    <div className="flex items-center justify-center py-16">
-                        <div className="spinner"></div>
-                    </div>
-                </div>
+            <div className="flex items-center justify-center py-32">
+                <div className="spinner"></div>
             </div>
         );
     }
@@ -136,142 +127,116 @@ export default function KnowledgeBase({ refreshTrigger, onStatsUpdate, onReset }
     return (
         <div className="max-w-5xl mx-auto">
             {/* Header */}
-            <div className="mb-8">
+            <div className="mb-12">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h2 className="text-3xl font-bold mb-2" style={{ color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
-                            Document Library
-                        </h2>
-                        <p className="text-base" style={{ color: 'var(--text-secondary)' }}>
-                            {documents.length} {documents.length === 1 ? 'document' : 'documents'} • {totalChunks} chunks
+                        <h2 className="text-3xl font-black mb-2 tracking-tight">Document Library</h2>
+                        <p className="text-[#666]">
+                            {documents.length} {documents.length === 1 ? 'document' : 'documents'} • {totalChunks} insightful chunks processed
                         </p>
                     </div>
                     {documents.length > 0 && (
                         <button
                             onClick={handleResetKnowledgeBase}
                             disabled={resetting}
-                            className="px-5 py-2.5 rounded-full font-semibold text-sm transition-all"
-                            style={{
-                                background: 'rgba(255, 59, 48, 0.1)',
-                                color: '#ff3b30',
-                                border: '1px solid rgba(255, 59, 48, 0.2)'
-                            }}
+                            className="bg-[#eb5757]/10 text-[#eb5757] px-6 py-3 rounded-full font-bold text-xs tracking-widest uppercase hover:bg-[#eb5757] hover:text-white transition-all border border-[#eb5757]/20"
                         >
-                            {resetting ? 'Resetting...' : '🗑️ Clear All'}
+                            {resetting ? 'Resetting...' : 'Clear All'}
                         </button>
                     )}
                 </div>
             </div>
 
             {/* Stats Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 {/* Total Documents */}
-                <div className="card" style={{ background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%)' }}>
-                    <div className="flex items-center gap-4">
-                        <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #667eea, #764ba2)' }}>
-                            <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ width: '28px', height: '28px' }}>
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <p className="text-3xl font-bold" style={{ color: 'var(--text-primary)' }}>{documents.length}</p>
-                            <p className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Documents</p>
-                        </div>
+                <div className="p-8 bg-[#f8f9fa] border border-[#eee] rounded-2xl flex items-center gap-6">
+                    <div className="w-16 h-16 rounded-2xl bg-[#4a1d4b] text-white flex items-center justify-center shadow-lg shadow-purple-500/20">
+                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p className="text-4xl font-black text-[#4a1d4b]">{documents.length}</p>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-[#888]">Documents</p>
                     </div>
                 </div>
 
                 {/* Total Chunks */}
-                <div className="card" style={{ background: 'rgba(0, 122, 255, 0.06)' }}>
-                    <div className="flex items-center gap-4">
-                        <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: '#007aff' }}>
-                            <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ width: '28px', height: '28px' }}>
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                            </svg>
-                        </div>
-                        <div>
-                            <p className="text-3xl font-bold" style={{ color: 'var(--text-primary)' }}>{totalChunks}</p>
-                            <p className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Chunks</p>
-                        </div>
+                <div className="p-8 bg-[#f8f9fa] border border-[#eee] rounded-2xl flex items-center gap-6">
+                    <div className="w-16 h-16 rounded-2xl bg-[#ff7062] text-white flex items-center justify-center shadow-lg shadow-coral-500/20">
+                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p className="text-4xl font-black text-[#ff7062]">{totalChunks}</p>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-[#888]">Chunks</p>
                     </div>
                 </div>
 
-                {/* Processed */}
-                <div className="card" style={{ background: 'rgba(52, 199, 89, 0.06)' }}>
-                    <div className="flex items-center gap-4">
-                        <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: '#34c759' }}>
-                            <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ width: '28px', height: '28px' }}>
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        <div>
-                            <p className="text-3xl font-bold" style={{ color: 'var(--text-primary)' }}>
-                                {documents.filter(d => d.status === 'completed').length}
-                            </p>
-                            <p className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Ready</p>
-                        </div>
+                {/* Processed Rate */}
+                <div className="p-8 bg-[#f8f9fa] border border-[#eee] rounded-2xl flex items-center gap-6">
+                    <div className="w-16 h-16 rounded-2xl bg-[#27ae60] text-white flex items-center justify-center shadow-lg shadow-green-500/20">
+                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p className="text-4xl font-black text-[#27ae60]">
+                            {documents.length > 0 ? Math.round((documents.filter(d => d.status === 'completed').length / documents.length) * 100) : 0}%
+                        </p>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-[#888]">Success Rate</p>
                     </div>
                 </div>
             </div>
 
             {/* Documents List */}
             {documents.length === 0 ? (
-                <div className="card text-center py-16">
-                    <div className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center" style={{ background: 'rgba(102, 126, 234, 0.1)' }}>
-                        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#667eea', width: '40px', height: '40px' }}>
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                <div className="text-center py-24 bg-[#f8f9fa] rounded-[32px] border border-dashed border-[#ccc]">
+                    <div className="w-24 h-24 rounded-full bg-white mx-auto mb-8 flex items-center justify-center shadow-xl">
+                        <svg className="w-12 h-12 text-[#ff7062]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
                     </div>
-                    <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>No Documents Yet</h3>
-                    <p className="text-base" style={{ color: 'var(--text-secondary)' }}>Upload your first document to get started</p>
+                    <h3 className="text-3xl font-black mb-3 tracking-tight">No Knowledge Base Yet</h3>
+                    <p className="text-[#666] max-w-sm mx-auto">Upload documents to start building your AI intelligence engine.</p>
                 </div>
             ) : (
-                <div className="space-y-3">
+                <div className="space-y-4">
                     {documents.map((doc) => (
                         <div
                             key={doc.document_id}
-                            className="card hover:shadow-lg transition-all"
-                            style={{ cursor: 'default' }}
+                            className="group p-6 bg-white border border-[#eee] rounded-2xl hover:border-[#ff7062] hover:shadow-xl transition-all"
                         >
-                            <div className="flex items-center justify-between gap-4">
-                                {/* Document Info */}
-                                <div className="flex items-center gap-4 flex-1">
-                                    {/* Icon */}
-                                    <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(135deg, #667eea, #764ba2)' }}>
-                                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ width: '24px', height: '24px' }}>
+                            <div className="flex items-center justify-between gap-6">
+                                <div className="flex items-center gap-6 min-w-0">
+                                    <div className="w-14 h-14 rounded-xl bg-[#4a1d4b]/5 text-[#4a1d4b] flex items-center justify-center group-hover:bg-[#4a1d4b] group-hover:text-white transition-all">
+                                        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                         </svg>
                                     </div>
-
-                                    {/* Details */}
-                                    <div className="flex-1 min-w-0">
-                                        <h3 className="font-semibold text-base mb-1 truncate" style={{ color: 'var(--text-primary)' }}>
-                                            {doc.filename}
-                                        </h3>
-                                        <div className="flex items-center gap-3 text-sm" style={{ color: 'var(--text-secondary)' }}>
-                                            <span className="font-medium">{doc.file_type.toUpperCase()}</span>
-                                            <span>•</span>
+                                    <div className="min-w-0">
+                                        <h3 className="font-bold text-lg mb-1 truncate text-[#111]">{doc.filename}</h3>
+                                        <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-[#888]">
+                                            <span className="text-[#ff7062]">{doc.file_type}</span>
+                                            <span className="opacity-30">•</span>
                                             <span>{formatFileSize(doc.file_size)}</span>
-                                            <span>•</span>
+                                            <span className="opacity-30">•</span>
                                             <span>{doc.total_chunks} chunks</span>
-                                            <span>•</span>
+                                            <span className="opacity-30">•</span>
                                             <span>{formatDate(doc.uploaded_at)}</span>
                                         </div>
                                     </div>
                                 </div>
 
-                                {/* Status & Actions */}
-                                <div className="flex items-center gap-3">
+                                <div className="flex items-center gap-4">
                                     {getStatusBadge(doc.status)}
                                     <button
                                         onClick={() => handleDeleteDocument(doc.document_id)}
-                                        className="p-2.5 rounded-xl transition-all"
-                                        style={{
-                                            background: 'rgba(255, 59, 48, 0.08)',
-                                            color: '#ff3b30'
-                                        }}
-                                        title="Delete document"
+                                        className="p-3 rounded-full text-[#eb5757] hover:bg-[#eb5757] hover:text-white transition-all"
                                     >
-                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ width: '20px', height: '20px' }}>
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                         </svg>
                                     </button>

@@ -102,10 +102,10 @@ export default function DocumentUpload({ onUploadSuccess }: DocumentUploadProps)
 
     return (
         <div className="max-w-4xl mx-auto">
-            <div className="card">
+            <div className="">
                 <div className="mb-6">
-                    <h2 className="text-2xl font-bold mb-2">Upload Documents</h2>
-                    <p className="text-gray-400">
+                    <h2 className="text-2xl font-black mb-2 tracking-tight">Upload Documents</h2>
+                    <p className="text-[#666]">
                         Upload PDF, DOCX, TXT, or Markdown files to build your knowledge base
                     </p>
                 </div>
@@ -129,16 +129,16 @@ export default function DocumentUpload({ onUploadSuccess }: DocumentUploadProps)
                     {!uploading ? (
                         <label htmlFor="file-upload" className="cursor-pointer">
                             <div className="flex flex-col items-center gap-4">
-                                <div className="w-16 h-16 rounded-full bg-indigo-600/20 flex items-center justify-center">
-                                    <svg className="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                <div className="w-20 h-20 rounded-full bg-[#ff7062]/10 flex items-center justify-center">
+                                    <svg className="w-10 h-10 text-[#ff7062]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                                     </svg>
                                 </div>
                                 <div className="text-center">
-                                    <p className="text-lg font-semibold mb-1">
+                                    <p className="text-xl font-bold mb-1 tracking-tight">
                                         Drop your document here or click to browse
                                     </p>
-                                    <p className="text-sm text-gray-400">
+                                    <p className="text-sm text-[#888]">
                                         Supported formats: PDF, DOCX, TXT, MD (Max 10MB)
                                     </p>
                                 </div>
@@ -148,10 +148,10 @@ export default function DocumentUpload({ onUploadSuccess }: DocumentUploadProps)
                         <div className="flex flex-col items-center gap-4">
                             <div className="spinner"></div>
                             <div className="text-center">
-                                <p className="text-lg font-semibold mb-2">{uploadStatus}</p>
-                                <div className="w-64 h-2 bg-[#2a2a3a] rounded-full overflow-hidden">
+                                <p className="text-lg font-bold mb-2">{uploadStatus}</p>
+                                <div className="w-64 h-3 bg-[#eee] rounded-full overflow-hidden">
                                     <div
-                                        className="h-full bg-gradient-to-r from-indigo-500 to-purple-600 transition-all duration-300"
+                                        className="h-full bg-[#ff7062] transition-all duration-300"
                                         style={{ width: `${uploadProgress}%` }}
                                     ></div>
                                 </div>
@@ -172,46 +172,45 @@ export default function DocumentUpload({ onUploadSuccess }: DocumentUploadProps)
                     </div>
                 )}
 
-                {/* Info Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                    <div className="p-4 bg-[#1a1a24] border border-[#2a2a3a] rounded-lg">
-                        <div className="flex items-center gap-3 mb-2">
-                            <div className="w-8 h-8 rounded-lg bg-indigo-600/20 flex items-center justify-center">
-                                <svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                    <div className="p-6 bg-[#f8f9fa] border border-[#eee] rounded-2xl">
+                        <div className="flex items-center gap-3 mb-4">
+                            <div className="w-10 h-10 rounded-xl bg-[#4a1d4b]/10 flex items-center justify-center">
+                                <svg className="w-6 h-6 text-[#4a1d4b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                 </svg>
                             </div>
-                            <h3 className="font-semibold">Smart Chunking</h3>
+                            <h3 className="font-bold tracking-tight">Smart Chunking</h3>
                         </div>
-                        <p className="text-sm text-gray-400">
+                        <p className="text-sm text-[#666] leading-relaxed">
                             Documents are split into 500-1000 token chunks with overlap for better context
                         </p>
                     </div>
 
-                    <div className="p-4 bg-[#1a1a24] border border-[#2a2a3a] rounded-lg">
-                        <div className="flex items-center gap-3 mb-2">
-                            <div className="w-8 h-8 rounded-lg bg-purple-600/20 flex items-center justify-center">
-                                <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="p-6 bg-[#f8f9fa] border border-[#eee] rounded-2xl">
+                        <div className="flex items-center gap-3 mb-4">
+                            <div className="w-10 h-10 rounded-xl bg-[#4a1d4b]/10 flex items-center justify-center">
+                                <svg className="w-6 h-6 text-[#4a1d4b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                                 </svg>
                             </div>
-                            <h3 className="font-semibold">Vector Search</h3>
+                            <h3 className="font-bold tracking-tight">Vector Search</h3>
                         </div>
-                        <p className="text-sm text-gray-400">
+                        <p className="text-sm text-[#666] leading-relaxed">
                             Embeddings stored in MongoDB for fast semantic search
                         </p>
                     </div>
 
-                    <div className="p-4 bg-[#1a1a24] border border-[#2a2a3a] rounded-lg">
-                        <div className="flex items-center gap-3 mb-2">
-                            <div className="w-8 h-8 rounded-lg bg-green-600/20 flex items-center justify-center">
-                                <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="p-6 bg-[#f8f9fa] border border-[#eee] rounded-2xl">
+                        <div className="flex items-center gap-3 mb-4">
+                            <div className="w-10 h-10 rounded-xl bg-[#4a1d4b]/10 flex items-center justify-center">
+                                <svg className="w-6 h-6 text-[#4a1d4b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
-                            <h3 className="font-semibold">Citations</h3>
+                            <h3 className="font-bold tracking-tight">Citations</h3>
                         </div>
-                        <p className="text-sm text-gray-400">
+                        <p className="text-sm text-[#666] leading-relaxed">
                             Every answer includes source references for verification
                         </p>
                     </div>

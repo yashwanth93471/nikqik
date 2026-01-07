@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 📚 Document Q&A Assistant (RAG)
 
 A powerful AI-powered document question-answering system using Retrieval-Augmented Generation (RAG). Upload documents and ask questions that are answered strictly based on the document's content with clear citations.
@@ -284,3 +285,6 @@ Built as an AI Intern Assignment demonstrating RAG implementation skills
 - OpenAI for GPT-4 and embeddings API
 - MongoDB for vector search capabilities
 - Next.js and FastAPI communities
+=======
+# nikqik
+>>>>>>> 02ab13c303206651fff960d6a80a0bc2079d34c6

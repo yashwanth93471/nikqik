@@ -165,6 +165,20 @@ class VectorStore:
         """Get all chunks for a document"""
         return list(self.chunks_collection.find({"document_id": document_id}))
     
+    def get_document_chunks(self, document_id: str) -> List[Dict[str, Any]]:
+        """
+        Get all chunks for a document, sorted by chunk index
+        
+        Args:
+            document_id: Document ID
+            
+        Returns:
+            List of chunks sorted by chunk_index
+        """
+        return list(self.chunks_collection.find(
+            {"document_id": document_id}
+        ).sort("chunk_index", 1))
+    
     def delete_document(self, document_id: str) -> bool:
         """
         Delete a document and all its chunks

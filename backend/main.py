@@ -289,6 +289,38 @@ async def get_documents():
         raise HTTPException(status_code=500, detail=f"Failed to get documents: {str(e)}")
 
 
+@app.get("/api/documents/{document_id}/summary")
+async def get_document_summary(document_id: str):
+    """
+    Get a summary of a specific document
+    
+    Args:
+        document_id: Document ID to summarize
+        
+    Returns:
+        Document summary
+    """
+    try:
+        # Check if document exists
+        document = vector_store.get_document(document_id)
+        if not document:
+            raise HTTPException(status_code=404, detail="Document not found")
+        
+        # Generate summary
+        summary = rag_engine.summarize_document(document_id)
+        
+        return {
+            "document_id": document_id,
+            "filename": document.get("filename", "Unknown"),
+            "summary": summary
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to generate summary: {str(e)}")
+
+
 @app.delete("/api/documents/{document_id}")
 async def delete_document(document_id: str):
     """

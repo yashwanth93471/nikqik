@@ -1,7 +1,14 @@
-<<<<<<< HEAD
 # 📚 Document Q&A Assistant (RAG)
 
 A powerful AI-powered document question-answering system using Retrieval-Augmented Generation (RAG). Upload documents and ask questions that are answered strictly based on the document's content with clear citations.
+
+## 🚀 Quick Start
+
+**New to this project? Start here:**
+
+1. **One-Click Launch**: Double-click `start-app.bat` or `start-app.ps1`
+2. **Read the Guide**: See [QUICK_START.md](QUICK_START.md) for detailed setup instructions
+3. **Open Browser**: Navigate to http://localhost:3000
 
 ## 🌟 Features
 
@@ -12,6 +19,7 @@ A powerful AI-powered document question-answering system using Retrieval-Augment
 - **Modern UI**: Beautiful, responsive interface with dark mode
 - **Real-time Processing**: Live upload and indexing status
 - **Knowledge Management**: Clear chat history and reset knowledge base
+- **FREE Option**: Use free Hugging Face models instead of paid OpenAI (see [FREE_SETUP.md](FREE_SETUP.md))
 
 ## 🏗️ Architecture
 
@@ -23,8 +31,8 @@ A powerful AI-powered document question-answering system using Retrieval-Augment
                             │
                             ▼
                      ┌─────────────┐
-                     │  OpenAI API │
-                     │ GPT-4 + Ada │
+                     │  AI Models  │
+                     │ OpenAI/HF   │
                      └─────────────┘
 ```
 
@@ -48,75 +56,9 @@ A powerful AI-powered document question-answering system using Retrieval-Augment
    - Vector embeddings with Atlas Search
    - Efficient similarity search
 
-4. **LLM Integration (OpenAI)**
-   - text-embedding-ada-002 for embeddings
-   - GPT-4 for answer generation
-   - Strict grounding to retrieved context
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Node.js 18+ and npm
-- Python 3.9+
-- MongoDB Atlas account (free tier works)
-- OpenAI API key
-
-### Installation
-
-1. **Clone and setup**
-```bash
-cd nikqik
-```
-
-2. **Backend Setup**
-```bash
-cd backend
-python -m venv venv
-venv\Scripts\activate  # Windows
-pip install -r requirements.txt
-```
-
-3. **Configure Environment**
-
-Create `backend/.env`:
-```env
-OPENAI_API_KEY=your_openai_api_key
-MONGODB_URI=your_mongodb_connection_string
-MONGODB_DB_NAME=document_qa
-CHUNK_SIZE=800
-CHUNK_OVERLAP=200
-TOP_K=5
-```
-
-4. **Frontend Setup**
-```bash
-cd frontend
-npm install
-```
-
-Create `frontend/.env.local`:
-```env
-NEXT_PUBLIC_API_URL=http://localhost:8000
-```
-
-5. **Start Services**
-
-Terminal 1 (Backend):
-```bash
-cd backend
-venv\Scripts\activate
-uvicorn main:app --reload
-```
-
-Terminal 2 (Frontend):
-```bash
-cd frontend
-npm run dev
-```
-
-6. **Access Application**
-Open [http://localhost:3000](http://localhost:3000)
+4. **LLM Integration**
+   - **Paid**: OpenAI (GPT-4 + text-embedding-ada-002)
+   - **FREE**: Hugging Face (Mistral-7B + MiniLM)
 
 ## 📖 Usage Guide
 
@@ -137,18 +79,6 @@ Open [http://localhost:3000](http://localhost:3000)
 - **Reset Knowledge Base**: Delete all indexed documents
 - **View Status**: See indexed documents count
 
-## 🧪 Test Cases
-
-### Sample Test Questions
-
-**Upload**: `sample_document.pdf` (company policy document)
-
-| Question | Expected Answer | Citation |
-|----------|----------------|----------|
-| "What is the vacation policy?" | "Employees receive 15 days of paid vacation annually..." | [Document: policy.pdf, Page: 3] |
-| "Who is the CEO?" | "The CEO is John Smith, appointed in 2020..." | [Document: policy.pdf, Page: 1] |
-| "What is the office address?" | "I couldn't find this information in the uploaded document." | N/A |
-
 ## 🎯 Technical Implementation
 
 ### Chunking Strategy
@@ -162,7 +92,7 @@ Open [http://localhost:3000](http://localhost:3000)
 - **Threshold**: Minimum 0.7 relevance score
 
 ### Answer Generation
-- **Model**: GPT-4
+- **Model**: GPT-4 or Mistral-7B
 - **Temperature**: 0.1 (deterministic)
 - **System Prompt**: Strict grounding instructions
 - **Citation Format**: [Document: {name}, Section: {id}]
@@ -173,61 +103,36 @@ Open [http://localhost:3000](http://localhost:3000)
 3. If uncertain, state "I couldn't find this information"
 4. Never hallucinate or use external knowledge
 
-## 📊 Evaluation Metrics
-
-### Accuracy & Grounding (40%)
-- ✅ Answers strictly from document content
-- ✅ No hallucinations or external knowledge
-- ✅ Correct information extraction
-
-### Citation Quality (20%)
-- ✅ Every answer includes source references
-- ✅ Citations are accurate and verifiable
-- ✅ Clear document and section identification
-
-### User Experience (20%)
-- ✅ Intuitive, modern interface
-- ✅ Real-time feedback
-- ✅ Fast response times (<3s)
-- ✅ Mobile responsive
-
-### Code Quality (20%)
-- ✅ Clean, modular architecture
-- ✅ Type hints and documentation
-- ✅ Error handling
-- ✅ Comprehensive README
-
 ## 🏛️ Project Structure
 
 ```
 nikqik/
+├── start-app.bat              # One-click launcher (Windows)
+├── start-app.ps1              # PowerShell launcher
+├── start-backend.ps1          # Backend only
+├── start-frontend.ps1         # Frontend only
+├── QUICK_START.md             # Quick setup guide
 ├── backend/
-│   ├── main.py                 # FastAPI application
-│   ├── document_processor.py   # Document extraction & chunking
-│   ├── embeddings.py           # OpenAI embeddings
-│   ├── vector_store.py         # MongoDB vector operations
-│   ├── rag_engine.py           # RAG query processing
-│   ├── models.py               # Pydantic models
-│   ├── requirements.txt        # Python dependencies
-│   └── .env                    # Environment variables
+│   ├── main.py                # FastAPI application
+│   ├── document_processor.py  # Document extraction & chunking
+│   ├── embeddings.py          # AI embeddings
+│   ├── vector_store.py        # MongoDB vector operations
+│   ├── rag_engine.py          # RAG query processing
+│   ├── models.py              # Pydantic models
+│   ├── requirements.txt       # Python dependencies
+│   └── .env                   # Environment variables
 ├── frontend/
 │   ├── app/
-│   │   ├── page.tsx           # Main application
-│   │   ├── layout.tsx         # Root layout
-│   │   └── globals.css        # Global styles
+│   │   ├── page.tsx          # Main application
+│   │   ├── layout.tsx        # Root layout
+│   │   └── globals.css       # Global styles
 │   ├── components/
-│   │   ├── ChatInterface.tsx  # Chat UI
-│   │   ├── DocumentUpload.tsx # Upload component
-│   │   └── KnowledgeBase.tsx  # KB management
+│   │   ├── ChatInterface.tsx # Chat UI
+│   │   ├── DocumentUpload.tsx# Upload component
+│   │   └── KnowledgeBase.tsx # KB management
 │   ├── package.json
 │   └── .env.local
-├── docs/
-│   ├── architecture.md        # Architecture diagram
-│   ├── test_cases.md          # Test scenarios
-│   └── demo_script.md         # Demo walkthrough
-├── tests/
-│   └── sample_documents/      # Test documents
-└── README.md
+└── docs/                      # Additional documentation
 ```
 
 ## 🔧 API Endpoints
@@ -243,34 +148,31 @@ nikqik/
 - `GET /api/chat/history` - Get chat history
 - `DELETE /api/chat/clear` - Clear chat history
 
-## 🎥 Demo Video
-
-A 3-5 minute demo video is included showing:
-1. Document upload process
-2. Real-time indexing
-3. Asking various questions
-4. Citation display
-5. Handling unknown queries
-6. Knowledge base management
-
 ## 🐛 Troubleshooting
+
+See [QUICK_START.md](QUICK_START.md) for detailed troubleshooting steps.
 
 ### Common Issues
 
 **MongoDB Connection Failed**
-- Verify MongoDB URI in `.env`
+- Verify MongoDB URI in `backend/.env`
 - Check network access in MongoDB Atlas
-- Ensure IP whitelist includes your address
+- Ensure IP whitelist includes your address (use 0.0.0.0/0 for testing)
 
-**OpenAI API Errors**
-- Verify API key is valid
-- Check API quota and billing
-- Ensure proper key format in `.env`
+**Backend won't start**
+- Activate virtual environment: `backend\.venv\Scripts\Activate.ps1`
+- Install dependencies: `pip install -r requirements.txt`
 
-**Slow Processing**
-- Large documents take time to chunk
-- Consider reducing chunk size
-- Check OpenAI API rate limits
+**Frontend won't start**
+- Install dependencies: `cd frontend && npm install`
+- Check `.env.local` exists with correct API URL
+
+## 📚 Additional Documentation
+
+- [QUICK_START.md](QUICK_START.md) - Detailed setup guide
+- [FREE_SETUP.md](FREE_SETUP.md) - Using free AI models
+- [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md) - Project architecture
+- [REQUIREMENTS_CHECKLIST.md](REQUIREMENTS_CHECKLIST.md) - Feature checklist
 
 ## 📝 License
 
@@ -283,8 +185,6 @@ Built as an AI Intern Assignment demonstrating RAG implementation skills
 ## 🙏 Acknowledgments
 
 - OpenAI for GPT-4 and embeddings API
+- Hugging Face for free AI models
 - MongoDB for vector search capabilities
 - Next.js and FastAPI communities
-=======
-# nikqik
->>>>>>> 02ab13c303206651fff960d6a80a0bc2079d34c6

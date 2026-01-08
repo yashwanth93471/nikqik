@@ -35,23 +35,23 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white selection:bg-[#ff7062] selection:text-white">
       {/* Header matching the reference */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#4a1d4b] py-4 shadow-lg' : 'bg-transparent py-6'}`}>
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#4a1d4b] py-5 shadow-2xl' : 'bg-[#4a1d4b]/80 backdrop-blur-md py-6 shadow-lg'}`}>
+        <div className="max-w-7xl mx-auto px-8 flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-[#ff7062] flex items-center justify-center">
-              <span className="text-white font-black text-xl">k</span>
+          <div className="flex items-center gap-3">
+            <div className="w-11 h-11 rounded-full bg-[#ff7062] flex items-center justify-center shadow-lg shadow-coral-500/30">
+              <span className="text-white font-black text-2xl">k</span>
             </div>
-            <span className="text-white font-black text-2xl tracking-tighter">koral.</span>
+            <span className="text-white font-black text-3xl tracking-tighter">koral.</span>
           </div>
 
           {/* Navigation - Centered */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-10">
             {['HOME', 'FEATURES', 'PRICING', 'ABOUT', 'CONTACT', 'BLOG'].map((item) => (
               <a
                 key={item}
                 href="#"
-                className={`text-xs font-bold tracking-widest hover:text-[#ff7062] transition-colors ${item === 'HOME' ? 'text-[#ff7062] border-b-2 border-[#ff7062] pb-1' : 'text-white'}`}
+                className={`text-sm font-bold tracking-widest hover:text-[#ff7062] transition-all duration-200 ${item === 'HOME' ? 'text-[#ff7062] border-b-2 border-[#ff7062] pb-1' : 'text-white/90 hover:text-white'}`}
               >
                 {item}
               </a>
@@ -60,15 +60,15 @@ export default function Home() {
 
           {/* Icons - Right */}
           <div className="flex items-center gap-6 text-white">
-            <button className="hover:text-[#ff7062] transition-colors">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            <button className="hover:text-[#ff7062] transition-all duration-200 hover:scale-110">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
             </button>
-            <div className="relative hover:text-[#ff7062] transition-colors cursor-pointer">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 118 0m-4 4v2m0-6V4m-8 8H4m0 0l-1 1m1-1l-1-1m1 1h.01m0 0L10 10m0 2l-1 1m1-1l-1-1" /></svg>
-              <span className="absolute -top-2 -right-2 bg-[#ff7062] text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+            <div className="relative hover:text-[#ff7062] transition-all duration-200 cursor-pointer hover:scale-110">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+              <span className="absolute -top-1 -right-1 bg-[#ff7062] text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold shadow-lg">0</span>
             </div>
-            <button className="hover:text-[#ff7062] transition-colors">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" /></svg>
+            <button className="hover:text-[#ff7062] transition-all duration-200 hover:scale-110">
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
             </button>
           </div>
         </div>
@@ -122,46 +122,40 @@ export default function Home() {
       </section>
 
       {/* Features Section - Below Hero */}
-      <section className="py-24 bg-white">
+      <section className="py-32 bg-gradient-to-b from-white to-[#f8f9fa]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-3 gap-8">
             {/* Feature 1 */}
-            <div className="flex gap-6 group">
-              <div className="shrink-0 w-12 h-12 flex items-center justify-center text-[#ff7062] transition-transform group-hover:scale-110">
-                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            <div className="p-8 bg-white rounded-3xl border border-[#eee] hover:border-[#ff7062] hover:shadow-2xl transition-all duration-300 group">
+              <div className="w-16 h-16 mb-6 flex items-center justify-center text-[#ff7062] bg-[#ff7062]/10 rounded-2xl group-hover:scale-110 transition-transform">
+                <svg className="w-14 h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
               </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3 tracking-tight">AI Semantic Search</h3>
-                <p className="text-[#666] leading-relaxed">
-                  Experience lightning-fast retrieval with our vector-based embedding system. Finds exactly what you're looking for by understanding context.
-                </p>
-              </div>
+              <h3 className="text-2xl font-black mb-4 tracking-tight">AI Semantic Search</h3>
+              <p className="text-[#666] leading-relaxed">
+                Experience lightning-fast retrieval with our vector-based embedding system. Finds exactly what you're looking for by understanding context.
+              </p>
             </div>
 
             {/* Feature 2 */}
-            <div className="flex gap-6 group">
-              <div className="shrink-0 w-12 h-12 flex items-center justify-center text-[#ff7062] transition-transform group-hover:scale-110">
-                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" /></svg>
+            <div className="p-8 bg-white rounded-3xl border border-[#eee] hover:border-[#ff7062] hover:shadow-2xl transition-all duration-300 group">
+              <div className="w-16 h-16 mb-6 flex items-center justify-center text-[#4a1d4b] bg-[#4a1d4b]/10 rounded-2xl group-hover:scale-110 transition-transform">
+                <svg className="w-14 h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
               </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3 tracking-tight">Intelligent Q&A</h3>
-                <p className="text-[#666] leading-relaxed">
-                  Ask complex questions and receive precise, AI-generated answers based solely on your uploaded knowledge base.
-                </p>
-              </div>
+              <h3 className="text-2xl font-black mb-4 tracking-tight">Intelligent Q&A</h3>
+              <p className="text-[#666] leading-relaxed">
+                Ask complex questions and receive precise, AI-generated answers based solely on your uploaded knowledge base.
+              </p>
             </div>
 
             {/* Feature 3 */}
-            <div className="flex gap-6 group">
-              <div className="shrink-0 w-12 h-12 flex items-center justify-center text-[#ff7062] transition-transform group-hover:scale-110">
-                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+            <div className="p-8 bg-white rounded-3xl border border-[#eee] hover:border-[#ff7062] hover:shadow-2xl transition-all duration-300 group">
+              <div className="w-16 h-16 mb-6 flex items-center justify-center text-[#27ae60] bg-[#27ae60]/10 rounded-2xl group-hover:scale-110 transition-transform">
+                <svg className="w-14 h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3 tracking-tight">Safe & Verified</h3>
-                <p className="text-[#666] leading-relaxed">
-                  Every answer comes with clickable citations. Always know exactly where your information originated for 100% transparency.
-                </p>
-              </div>
+              <h3 className="text-2xl font-black mb-4 tracking-tight">Safe & Verified</h3>
+              <p className="text-[#666] leading-relaxed">
+                Every answer comes with clickable citations. Always know exactly where your information originated for 100% transparency.
+              </p>
             </div>
           </div>
         </div>
